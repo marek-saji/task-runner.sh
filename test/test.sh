@@ -1,21 +1,8 @@
-#!/bin/bash
+#!/bin/sh
+
+set -e
 
 cd "$( dirname "$0" )"
 
-. ../src/task-runner.sh
-
-bash_function ()
-{
-    bash dummy.sh three
-}
-
-register_task one "bash dummy.sh 'command'"
-register_task two "bash dummy.sh 'command'"
-# bash functions
-register_task three "bash_function"
-# colours
-register_task four "printf \"\\e[35mflying colours!\n\""
-# piping
-register_task five "bash dummy.sh five | grep 'i am'"
-
-run_tasks
+script -c "./test-tasks.sh" | grep -Pv '^Script' | sed -r -e 's/PID=[0-9]+/PID=$!/' -e 's/[0-9]{4}(-[0-9]{2}){2}T[0-9]{2}(:[0-9]{2}){2}/YYYY-MM-DDTHH:MM:SS/' | sort > test-typescript
+diff test-typescript expected-typescript
