@@ -62,7 +62,7 @@ run_tasks ()
         else
             CMD="${DATA}"
 
-            __run_task "${NAME}" "${CMD}" &
+            __run_task "${NAME}" "${CMD}" "$(( IDX / 2 ))" &
             TASK_PIDS=( "${TASK_PIDS[@]}" $! )
         fi
     done
@@ -76,22 +76,24 @@ run_tasks ()
 #
 # $1 - name
 # $2 - command
+# $3 - index
 __run_task ()
 {
     local NAME="$1"
     local CMD="$2"
+    local IDX="$3"
     local PID=
 
     ((
         sleep 1
         eval "$CMD"
-    ) 1> >( __read_lines "${NAME}" 1 )
-    ) 2> >( __read_lines "${NAME}" 2 ) \
+    ) 1> >( __read_lines "${NAME}" 1 "${IDX}")
+    ) 2> >( __read_lines "${NAME}" 2 "${IDX}") \
     & PID=$!
 
-    __print_message "${NAME}" "HI!" "Job started. PID=${PID}"
+    __print_message "${NAME}" "HI!" "Job started. PID=${PID}" "${IDX}"
     wait ${PID}
-    __print_message "${NAME}" "END" "Job ended. PID=${PID}"
+    __print_message "${NAME}" "END" "Job ended. PID=${PID}" "${IDX}"
 }
 
 
@@ -100,10 +102,12 @@ __run_task ()
 #
 # $1 - name
 # $2 - number of file description output comes from
+# $3 - index
 __read_lines ()
 {
     local NAME="$1"
     local FN="$2"
+    local IDX="$3"
     local LINE_TYPE="???"
     local LINE=
 
@@ -117,7 +121,7 @@ __read_lines ()
 
     while read -r LINE
     do
-        __print_message "${NAME}" "${LINE_TYPE}" "${LINE}"
+        __print_message "${NAME}" "${LINE_TYPE}" "${LINE}" "${IDX}"
     done
 }
 
@@ -127,21 +131,24 @@ __read_lines ()
 # $1 - name
 # $2 - type (should have three letters)
 # $3 - message
+# $4 - index
 __print_message ()
 {
     local NAME="$1"
     local TYPE="$2"
     local MESSAGE="$3"
+    local IDX="$4"
 
     local DATE="$( date +"${DATE_FORMAT}" )"
 
     local COLOUR_RESET=""
     local COLOUR_META=""
     local COLOUR_MESSAGE=""
+    local COLOUR_TASK=
 
     if (( ${USE_COLOUR} ))
     then
-        COLOUR_RESET="\e[;0m"
+        COLOUR_RESET="\e[0;0m"
         COLOUR_META="\e[1;30m"
         case "${TYPE}" in
             "OUT" ) COLOUR_MESSAGE="" ;;
@@ -150,9 +157,11 @@ __print_message ()
             * )     COLOUR_MESSAGE="\e[34m" ;;
         esac
         COLOUR_MESSAGE="${COLOUR_RESET}${COLOUR_MESSAGE}"
+        # Bash/ASCII colours from 32 (green) to 36 (cyan),
+        COLOUR_TASK="\e[0;$(( 32 + ( ( IDX + 1 ) % 5 ) ))m"
     fi
 
-    printf "${COLOUR_META}%s %s %- ${MAX_TASK_NAME_LEN}s ${COLOUR_MESSAGE}%s${COLOUR_RESET}\n" \
+    printf "${COLOUR_META}%s %s ${COLOUR_TASK}%- ${MAX_TASK_NAME_LEN}s ${COLOUR_META}| ${COLOUR_MESSAGE}%s${COLOUR_RESET}\n" \
         "${DATE}" "${TYPE}" "${NAME}" \
         "${MESSAGE}"
 }
