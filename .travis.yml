@@ -1,3 +1,2 @@
-# Travis does not support bash
-language: c
+language: bash
 script: ./test/test.sh
