@@ -43,14 +43,18 @@ register_task ()
 # Run tasks registered with register_task
 run_tasks ()
 {
-    TASK_PIDS=()
+    local TASK_PIDS=()
 
-    NAME=
-    CMD=
-    DATA_IS_NAME=0
+    local NAME=
+    local CMD=
+    local DATA_IS_NAME=0
+    local DATA=
+    local IDX=-1
+
     for DATA in "${TASKS[@]}"
     do
         DATA_IS_NAME=$(( ( DATA_IS_NAME + 1 ) % 2 ))
+        IDX=$(( IDX + 1 ))
 
         if (( DATA_IS_NAME ))
         then
@@ -74,8 +78,9 @@ run_tasks ()
 # $2 - command
 __run_task ()
 {
-    NAME="$1"
-    CMD="$2"
+    local NAME="$1"
+    local CMD="$2"
+    local PID=
 
     ((
         sleep 1
@@ -97,8 +102,10 @@ __run_task ()
 # $2 - number of file description output comes from
 __read_lines ()
 {
-    NAME="$1"
-    FN="$2"
+    local NAME="$1"
+    local FN="$2"
+    local LINE_TYPE="???"
+    local LINE=
 
     if [ "$FN" = 1 ]
     then
@@ -122,11 +129,15 @@ __read_lines ()
 # $3 - message
 __print_message ()
 {
-    NAME="$1"
-    TYPE="$2"
-    MESSAGE="$3"
+    local NAME="$1"
+    local TYPE="$2"
+    local MESSAGE="$3"
 
-    DATE="$( date +"${DATE_FORMAT}" )"
+    local DATE="$( date +"${DATE_FORMAT}" )"
+
+    local COLOUR_RESET=""
+    local COLOUR_META=""
+    local COLOUR_MESSAGE=""
 
     if (( ${USE_COLOUR} ))
     then
@@ -139,10 +150,6 @@ __print_message ()
             * )     COLOUR_MESSAGE="\e[34m" ;;
         esac
         COLOUR_MESSAGE="${COLOUR_RESET}${COLOUR_MESSAGE}"
-    else
-        COLOUR_RESET=""
-        COLOUR_META=""
-        COLOUR_MESSAGE=""
     fi
 
     printf "${COLOUR_META}%s %s %- ${MAX_TASK_NAME_LEN}s ${COLOUR_MESSAGE}%s${COLOUR_RESET}\n" \
