@@ -1,6 +1,8 @@
 Simple bash task runner
 =======================
 
+[![Build Status](https://travis-ci.org/marek-saji/task-runner.sh.svg?branch=master)](https://travis-ci.org/marek-saji/task-runner.sh)
+
 ## Usage
 
 1. Create a tasks runner file:
