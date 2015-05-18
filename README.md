@@ -22,7 +22,8 @@ Simple bash task runner
         register_task 'error' 'tail -f /var/log/httpd/error.log'
         register_task 'access' 'nonStaticAccess'
 
-        run_tasks
+        # %T is the default, but you can overwrite it here
+        DATE_FORMAT="%FT%T" run_tasks
 
 2. Run it.
 

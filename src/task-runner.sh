@@ -8,7 +8,7 @@ fi
 
 set -e
 
-DEFAULT_DATE_FORMAT="%FT%T"
+DEFAULT_DATE_FORMAT="%T"
 
 # ( "NAME1" "CMD1" "NAME2" "CMD2" ... )
 TASKS=()
