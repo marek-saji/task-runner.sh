@@ -151,17 +151,34 @@ __print_message ()
         COLOUR_RESET="\e[0;0m"
         COLOUR_META="\e[1;30m"
         case "${TYPE}" in
-            "OUT" ) COLOUR_MESSAGE="" ;;
-            "ERR" ) COLOUR_MESSAGE="\e[31m" ;;
-            "END" ) COLOUR_MESSAGE="\e[1;31m" ;;
-            * )     COLOUR_MESSAGE="\e[34m" ;;
+            "OUT" )
+                COLOUR_MESSAGE=""
+                SEPARATOR="|"
+                ;;
+            "ERR" )
+                COLOUR_MESSAGE="\e[31m"
+                SEPARATOR="!"
+                ;;
+            "HI!" )
+                COLOUR_MESSAGE="\e[1;31m"
+                SEPARATOR="+"
+                ;;
+            "END" )
+                COLOUR_MESSAGE="\e[1;31m"
+                SEPARATOR="-"
+                ;;
+            * )
+                COLOUR_MESSAGE="\e[34m"
+                SEPARATOR="|"
+                ;;
         esac
         COLOUR_MESSAGE="${COLOUR_RESET}${COLOUR_MESSAGE}"
         # Bash/ASCII colours from 32 (green) to 36 (cyan),
         COLOUR_TASK="\e[0;$(( 32 + ( ( IDX + 1 ) % 5 ) ))m"
     fi
 
-    printf "${COLOUR_META}%s %s ${COLOUR_TASK}%- ${MAX_TASK_NAME_LEN}s ${COLOUR_META}| ${COLOUR_MESSAGE}%s${COLOUR_RESET}\n" \
-        "${DATE}" "${TYPE}" "${NAME}" \
+    printf "${COLOUR_META}%s ${COLOUR_TASK}%- ${MAX_TASK_NAME_LEN}s ${COLOUR_META}%s ${COLOUR_MESSAGE}%s${COLOUR_RESET}\n" \
+        "${DATE}" "${NAME}" \
+        "${SEPARATOR}" \
         "${MESSAGE}"
 }
