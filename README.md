@@ -11,8 +11,9 @@ Simple bash task runner
 
         nonStaticAccess ()
         {
+            # Note that you *want* to use `--line-buffered` if grepping
             tail -f /var/log/httpd/access.log |
-                grep -Pv '/(image|css|js)/'
+                grep --line-buffered -Pv '/(image|css|js)/'
         }
 
         . PATH_TO/task-runner.sh
