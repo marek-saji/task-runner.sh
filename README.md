@@ -9,7 +9,7 @@ Simple bash task runner
 
         #!/bin/bash
 
-        function nonStaticAccess ()
+        nonStaticAccess ()
         {
             tail -f /var/log/httpd/access.log |
                 grep -Pv '/(image|css|js)/'
@@ -17,11 +17,15 @@ Simple bash task runner
 
         . PATH_TO/task-runner.sh
 
+        # You may use commands
         register_task 'task name' 'command'
         register_task 'dev-server' 'python -m SimpleHTTPServer'
         register_task 'error' 'tail -f /var/log/httpd/error.log'
+        # or call defined functions
         register_task 'access' 'nonStaticAccess'
 
+        # After registering all tasks, run them,
+        # optionally specyfing date format.
         # %T is the default, but you can overwrite it here
         DATE_FORMAT="%FT%T" run_tasks
 
