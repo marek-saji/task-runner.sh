@@ -8,6 +8,12 @@ fi
 
 set -e
 
+if [ "$0" = "${BASH_SOURCE[0]}" ]
+then
+    echo "This script is ment to be sourced, not run."
+    exit 64
+fi
+
 DEFAULT_DATE_FORMAT="%T"
 
 # ( "NAME1" "CMD1" "NAME2" "CMD2" ... )
