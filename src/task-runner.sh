@@ -6,7 +6,10 @@ then
     echo "Sorry about that."
 fi
 
+# Exit on any failure
 set -e
+# Exit if any command in pipeline fails
+set -o pipefail
 
 if [ "$0" = "${BASH_SOURCE[0]}" ]
 then
