@@ -1,27 +1,27 @@
-[1;30mYYYY-MM-DDTHH:MM:SS END [0;33mone   [1;30m| [0;0m[1;31mJob ended. PID=$![0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS END [0;34mtwo   [1;30m| [0;0m[1;31mJob ended. PID=$![0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS END [0;35mthree [1;30m| [0;0m[1;31mJob ended. PID=$![0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS END [0;36mfour  [1;30m| [0;0m[1;31mJob ended. PID=$![0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS ERR [0;32mfive  [1;30m| [0;0m[31mI am five for the #1 time[0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS ERR [0;32mfive  [1;30m| [0;0m[31mI am five for the #4 time[0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS ERR [0;33mone   [1;30m| [0;0m[31mI am command for the #1 time[0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS ERR [0;33mone   [1;30m| [0;0m[31mI am command for the #4 time[0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS ERR [0;34mtwo   [1;30m| [0;0m[31mI am command for the #1 time[0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS ERR [0;34mtwo   [1;30m| [0;0m[31mI am command for the #4 time[0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS ERR [0;35mthree [1;30m| [0;0m[31mI am three for the #1 time[0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS ERR [0;35mthree [1;30m| [0;0m[31mI am three for the #4 time[0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS HI! [0;32mfive  [1;30m| [0;0m[34mJob started. PID=$![0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS HI! [0;33mone   [1;30m| [0;0m[34mJob started. PID=$![0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS HI! [0;34mtwo   [1;30m| [0;0m[34mJob started. PID=$![0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS HI! [0;35mthree [1;30m| [0;0m[34mJob started. PID=$![0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS HI! [0;36mfour  [1;30m| [0;0m[34mJob started. PID=$![0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS OUT [0;33mone   [1;30m| [0;0mI am command for the #2 time[0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS OUT [0;33mone   [1;30m| [0;0mI am command for the #3 time[0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS OUT [0;33mone   [1;30m| [0;0mI am command for the #5 time[0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS OUT [0;34mtwo   [1;30m| [0;0mI am command for the #2 time[0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS OUT [0;34mtwo   [1;30m| [0;0mI am command for the #3 time[0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS OUT [0;34mtwo   [1;30m| [0;0mI am command for the #5 time[0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS OUT [0;35mthree [1;30m| [0;0mI am three for the #2 time[0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS OUT [0;35mthree [1;30m| [0;0mI am three for the #3 time[0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS OUT [0;35mthree [1;30m| [0;0mI am three for the #5 time[0;0m
-[1;30mYYYY-MM-DDTHH:MM:SS OUT [0;36mfour  [1;30m| [0;0m[35mflying colours![0;0m
+[1;30m(DATE) END [0;33mone   [1;30m| [0;0m[1;31mJob ended. PID=$![0;0m
+[1;30m(DATE) END [0;34mtwo   [1;30m| [0;0m[1;31mJob ended. PID=$![0;0m
+[1;30m(DATE) END [0;35mthree [1;30m| [0;0m[1;31mJob ended. PID=$![0;0m
+[1;30m(DATE) END [0;36mfour  [1;30m| [0;0m[1;31mJob ended. PID=$![0;0m
+[1;30m(DATE) ERR [0;32mfive  [1;30m| [0;0m[31mI am five for the #1 time[0;0m
+[1;30m(DATE) ERR [0;32mfive  [1;30m| [0;0m[31mI am five for the #4 time[0;0m
+[1;30m(DATE) ERR [0;33mone   [1;30m| [0;0m[31mI am command for the #1 time[0;0m
+[1;30m(DATE) ERR [0;33mone   [1;30m| [0;0m[31mI am command for the #4 time[0;0m
+[1;30m(DATE) ERR [0;34mtwo   [1;30m| [0;0m[31mI am command for the #1 time[0;0m
+[1;30m(DATE) ERR [0;34mtwo   [1;30m| [0;0m[31mI am command for the #4 time[0;0m
+[1;30m(DATE) ERR [0;35mthree [1;30m| [0;0m[31mI am three for the #1 time[0;0m
+[1;30m(DATE) ERR [0;35mthree [1;30m| [0;0m[31mI am three for the #4 time[0;0m
+[1;30m(DATE) HI! [0;32mfive  [1;30m| [0;0m[34mJob started. PID=$![0;0m
+[1;30m(DATE) HI! [0;33mone   [1;30m| [0;0m[34mJob started. PID=$![0;0m
+[1;30m(DATE) HI! [0;34mtwo   [1;30m| [0;0m[34mJob started. PID=$![0;0m
+[1;30m(DATE) HI! [0;35mthree [1;30m| [0;0m[34mJob started. PID=$![0;0m
+[1;30m(DATE) HI! [0;36mfour  [1;30m| [0;0m[34mJob started. PID=$![0;0m
+[1;30m(DATE) OUT [0;33mone   [1;30m| [0;0mI am command for the #2 time[0;0m
+[1;30m(DATE) OUT [0;33mone   [1;30m| [0;0mI am command for the #3 time[0;0m
+[1;30m(DATE) OUT [0;33mone   [1;30m| [0;0mI am command for the #5 time[0;0m
+[1;30m(DATE) OUT [0;34mtwo   [1;30m| [0;0mI am command for the #2 time[0;0m
+[1;30m(DATE) OUT [0;34mtwo   [1;30m| [0;0mI am command for the #3 time[0;0m
+[1;30m(DATE) OUT [0;34mtwo   [1;30m| [0;0mI am command for the #5 time[0;0m
+[1;30m(DATE) OUT [0;35mthree [1;30m| [0;0mI am three for the #2 time[0;0m
+[1;30m(DATE) OUT [0;35mthree [1;30m| [0;0mI am three for the #3 time[0;0m
+[1;30m(DATE) OUT [0;35mthree [1;30m| [0;0mI am three for the #5 time[0;0m
+[1;30m(DATE) OUT [0;36mfour  [1;30m| [0;0m[35mflying colours![0;0m

@@ -8,7 +8,7 @@ fi
 
 set -e
 
-DATE_FORMAT="%FT%T"
+DEFAULT_DATE_FORMAT="%FT%T"
 
 # ( "NAME1" "CMD1" "NAME2" "CMD2" ... )
 TASKS=()
@@ -139,7 +139,7 @@ __print_message ()
     local MESSAGE="$3"
     local IDX="$4"
 
-    local DATE="$( date +"${DATE_FORMAT}" )"
+    local DATE="$( date +"${DATE_FORMAT:-${DEFAULT_DATE_FORMAT}}" )"
 
     local COLOUR_RESET=""
     local COLOUR_META=""
