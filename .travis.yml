@@ -2,6 +2,8 @@ language: bash
 sudo: false
 addons:
     apt:
+      sources:
+          - debian-sid
       packages:
           - shellcheck
 script: ./test/test.sh
