@@ -1,3 +1,7 @@
 language: bash
-script: ./test/test.sh
 sudo: false
+addons:
+    apt:
+      packages:
+          - shellcheck
+script: ./test/test.sh

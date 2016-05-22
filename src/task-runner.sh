@@ -42,7 +42,7 @@ register_task ()
 {
     TASKS=( "${TASKS[@]}" "$1" "$2" )
     TASK_NAME_LEN="$( echo -n "$1" | wc -c )"
-    if [ ${TASK_NAME_LEN} -gt ${MAX_TASK_NAME_LEN} ]
+    if [ "${TASK_NAME_LEN}" -gt "${MAX_TASK_NAME_LEN}" ]
     then
         MAX_TASK_NAME_LEN=${TASK_NAME_LEN}
     fi
@@ -93,10 +93,11 @@ __run_task ()
     local IDX="$3"
     local PID=
 
-    ((
-        sleep 1
-        eval "$CMD"
-    ) 1> >( __read_lines "${NAME}" 1 "${IDX}")
+    (
+        (
+            sleep 1
+            eval "$CMD"
+        ) 1> >( __read_lines "${NAME}" 1 "${IDX}")
     ) 2> >( __read_lines "${NAME}" 2 "${IDX}") \
     & PID=$!
 
@@ -148,14 +149,15 @@ __print_message ()
     local MESSAGE="$3"
     local IDX="$4"
 
-    local DATE="$( date +"${DATE_FORMAT:-${DEFAULT_DATE_FORMAT}}" )"
+    local DATE
+    DATE="$( date +"${DATE_FORMAT:-${DEFAULT_DATE_FORMAT}}" )"
 
     local COLOUR_RESET=""
     local COLOUR_META=""
     local COLOUR_MESSAGE=""
     local COLOUR_TASK=
 
-    if (( ${USE_COLOUR} ))
+    if (( USE_COLOUR ))
     then
         COLOUR_RESET="\e[0;0m"
         COLOUR_META="\e[1;30m"
